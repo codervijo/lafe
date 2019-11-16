@@ -1,0 +1,25 @@
+.bar-chart {  
+    background-color: #2c2c2c;  
+}
+
+text {
+  font-family: sans-serif;
+}
+
+.rect {
+  fill: #9de6e6;
+}
+
+.label-month {
+  text-anchor: middle;
+  font-size: 0.8rem;
+  fill: #9de6e6;
+}
+
+.label-temp {
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-anchor: middle;
+  fill: #1d4546;
+}
+
