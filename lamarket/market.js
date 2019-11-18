@@ -1,66 +1,18 @@
-const marketData = [
-{   
-    "name": "Toyota RAV4",
-    "model": "RAV4",
-    "temperature": 50559
-},
-{   
-    "name": "Toyota Prius C",
-    "model": "PRI",
-    "temperature": 12415
-},
-{   
-    "name": "Toyota Prius (Liftback)",
-    "model": "PRI",
-    "temperature": 65630
-},
-{   
-    "name": "Toyota Highlander",
-    "model": "HIGH",
-    "temperature": 16864
-},
-{   
-    "name": "Toyota Camry",
-    "model": "CAM",
-    "temperature": 20985
-},
-{   
-    "name": "Lexus RX400h (RX450h)",
-    "model": "LX",
-    "temperature": 8568
-},
-{   
-    "name": "Kia Niro Hybrid",
-    "model": "Kia",
-    "temperature": 27195
-},
-{   
-    "name": "Hyundai Sonata",
-    "model": "HYU",
-    "temperature": 10338
-},
-{   
-    "name": "Hyundai Ioniq Hybrid",
-    "model": "ION",
-    "temperature": 10766
-},
-{   
-    "name": "Honda Accord",
-    "model": "HON",
-    "temperature": 22008
-},
-{   
-    "name": "Ford Fusion",
-    "model": "FORD",
-    "temperature": 57474
-},]
+//const marketData =
 
+
+let marketData;// = JSON.parse(document.getElementById('localMarketData').src);
+loadJSON(document.getElementById('localMarketData').src,
+         function(data) { console.log(data); marketData = data; },
+         function(xhr) { console.error(xhr); }
+);
 const chartWidth = 500;  
 const chartHeight = 300;
 const barPadding = 5;
 const barWidth = (chartWidth / marketData.length);
 const scaleFactor = 2.5;
 
+//const marketData = d3.json('#localMarketData');
 let svg = d3.select("body").append("svg")
     .attr("width", chartWidth)
     .attr("height", chartHeight)
@@ -114,4 +66,23 @@ svg.selectAll(".text")
 
 function formatTemperature(temp){
     return `${Math.round(temp)}K`
+}
+
+function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
 }
