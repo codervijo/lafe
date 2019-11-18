@@ -5,7 +5,7 @@ let marketData;// = JSON.parse(document.getElementById('localMarketData').src);
 let barWidth;// = (chartWidth / marketData.length);
 loadJSON(document.getElementById('localMarketData').src,
          function(data) { console.log(data); marketData = data;
-                           barWidth = (chartWidth / marketData.length;
+                           barWidth = (chartWidth / marketData.length);
              },
          function(xhr) { console.error(xhr); }
 );
