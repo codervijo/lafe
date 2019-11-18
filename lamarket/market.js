@@ -12,12 +12,13 @@ let barWidth;// = (chartWidth / marketData.length);
 d3.json(document.getElementById('localMarketData').src,
         function(data) {
                         marketData = data;
-                        barWidth = (chartWidth / marketData.length);
 
                         const chartWidth = 500;  
                         const chartHeight = 300;
                         const barPadding = 5;
                         const scaleFactor = 2.5;
+                        barWidth = (chartWidth / marketData.length);
+
 
                         //const marketData = d3.json('#localMarketData');
                         let svg = d3.select("body").append("svg")
