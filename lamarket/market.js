@@ -77,7 +77,7 @@ d3.json(document.getElementById('localMarketData').src,
     )
 
 function normalize(dataPoint, max) {
-    return max > 10000 ? dataPoint/10000 : dataPoint/1000;
+    return max > 100000 ? dataPoint/5000 : dataPoint/1000;
 }
 
 function formatDatapoint(temp){
