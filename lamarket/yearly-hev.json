@@ -1,0 +1,98 @@
+[
+{   
+    "name": "1999",
+    "model": "1999",
+    "temperature": 17
+},
+{   
+    "name": "2000",
+    "model": "2000",
+    "temperature": 9350
+},
+{   
+    "name": "2001",
+    "model": "2001",
+    "temperature": 20282 
+},
+{   
+    "name": "2002",
+    "model": "2002",
+    "temperature": 36035
+},
+{   
+    "name": "2003",
+    "model": "2003",
+    "temperature": 47600 
+},
+{   
+    "name": "2004",
+    "model": "2004",
+    "temperature": 84199
+},
+{   
+    "name": "2005",
+    "model": "2005",
+    "temperature": 209711
+},
+{   
+    "name": "2006",
+    "model": "2006",
+    "temperature": 252636 
+},
+{   
+    "name": "2007",
+    "model": "2007",
+    "temperature": 352274 
+},
+{   
+    "name": "2008",
+    "model": "2008",
+    "temperature": 312386 
+},
+{   
+    "name": "2009",
+    "model": "2009",
+    "temperature": 290271 
+},
+{   
+    "name": "2010",
+    "model": "2010",
+    "temperature": 274210 
+},
+{   
+    "name": "2011",
+    "model": "2011",
+    "temperature": 266345 
+},
+{   
+    "name": "2012",
+    "model": "2012",
+    "temperature": 434813 
+},
+{   
+    "name": "2013",
+    "model": "2013",
+    "temperature": 495529 
+},
+{   
+    "name": "2014",
+    "model": "2014",
+    "temperature": 452172 
+},
+{   
+    "name": "2015",
+    "model": "2015",
+    "temperature": 384404 
+},
+{   
+    "name": "2016",
+    "model": "2016",
+    "temperature": 346948 
+},
+{   
+    "name": "2017",
+    "model": "2017",
+    "temperature": 370685 
+}
+
+]
