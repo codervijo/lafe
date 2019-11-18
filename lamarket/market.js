@@ -2,14 +2,16 @@
 
 
 let marketData;// = JSON.parse(document.getElementById('localMarketData').src);
+let barWidth;// = (chartWidth / marketData.length);
 loadJSON(document.getElementById('localMarketData').src,
-         function(data) { console.log(data); marketData = data; },
+         function(data) { console.log(data); marketData = data;
+                           barWidth = (chartWidth / marketData.length;
+             },
          function(xhr) { console.error(xhr); }
 );
 const chartWidth = 500;  
 const chartHeight = 300;
 const barPadding = 5;
-const barWidth = (chartWidth / marketData.length);
 const scaleFactor = 2.5;
 
 //const marketData = d3.json('#localMarketData');
