@@ -28,7 +28,7 @@ d3.json(document.getElementById('localMarketData').src,
                                   return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor;  
                                })  
                               .attr("height", function(dataPoint) {  
-                                  return dataPoint.temperature*scaleFactor;  
+                                  return normalize(dataPoint.temperature*scaleFactor, maxv);  
                                })  
                               .attr("width", barWidth - barPadding*2)     
                               .attr("transform", function (dataPoint, index) { 
