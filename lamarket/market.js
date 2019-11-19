@@ -1,20 +1,12 @@
-//const marketData =
 
-
-let marketData;// = JSON.parse(document.getElementById('localMarketData').src);
-let barWidth;// = (chartWidth / marketData.length);
-/*loadJSON(document.getElementById('localMarketData').src,
-         function(data) { console.log(data); marketData = data;
-                           barWidth = (chartWidth / marketData.length);
-             },
-         function(xhr) { console.error(xhr); }
-);*/
+let marketData;
+let barWidth;
 d3.json(document.getElementById('localMarketData').src,
         function(data) {
             marketData = data;
 
-            const chartWidth = 500;  
-            const chartHeight = 300;
+            const chartWidth = 700;  
+            const chartHeight = 350;
             const barPadding = 5;
             const scaleFactor = 2.5;
             barWidth = (chartWidth / marketData.length);
@@ -24,54 +16,54 @@ d3.json(document.getElementById('localMarketData').src,
 
             //const marketData = d3.json('#localMarketData');
             let svg = d3.select("body").append("svg")
-                                                   .attr("width", chartWidth)
-                                                   .attr("height", chartHeight)
-                                                   .attr("class", "bar-chart");
+                                       .attr("width", chartWidth)
+                                       .attr("height", chartHeight)
+                                       .attr("class", "bar-chart");
 
             let barChart = svg.selectAll("rect")  
-                                          .data(marketData)  
-                                          .enter()  
-                                          .append("rect")  
-                                          .attr("y", function(dataPoint) {  
-                                              return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor;  
-                                          })  
-                                          .attr("height", function(dataPoint) {  
-                                              return dataPoint.temperature*scaleFactor;  
-                                          })  
-                                          .attr("width", barWidth - barPadding*2)     
-                                          .attr("transform", function (dataPoint, index) { 
-                                               let translate = [barPadding + barWidth * index, 0];  
-                                               return `translate(${translate})`;  
-                                          })
-                                          .attr("class", "rect");
+                              .data(marketData)  
+                              .enter()  
+                              .append("rect")
+                              .attr("y", function(dataPoint) {  
+                                  return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor;  
+                               })  
+                              .attr("height", function(dataPoint) {  
+                                  return dataPoint.temperature*scaleFactor;  
+                               })  
+                              .attr("width", barWidth - barPadding*2)     
+                              .attr("transform", function (dataPoint, index) { 
+                                   let translate = [barPadding + barWidth * index, 0];  
+                                   return `translate(${translate})`;  
+                               })
+                              .attr("class", "rect");
 
             svg.selectAll(".text") 
-                            .data(marketData)
-                            .enter()  
-                            .append("text")
-                                .attr("x", function (dataPoint, index) { 
-                                     return barWidth * index + barWidth/2;  
-                                })
-                                .attr("y",function(dataPoint) {  
-                                    return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor + barPadding;  
-                                })
-                                .attr("class", "label-month")
-                                .attr("dy", "-1em")
-                                .text(function(dataPoint) { return dataPoint.model; });
+               .data(marketData)
+               .enter()  
+               .append("text")
+               .attr("x", function (dataPoint, index) { 
+                    return barWidth * index + barWidth/2;  
+                })
+               .attr("y",function(dataPoint) {  
+                   return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor + barPadding;  
+                })
+               .attr("class", "label-month")
+               .attr("dy", "-1em")
+               .text(function(dataPoint) { return dataPoint.model; });
 
             svg.selectAll(".text") 
-                            .data(marketData)
-                            .enter()  
-                            .append("text")
-                                .attr("x", function (dataPoint, index) { 
-                                     return barWidth * index + barWidth/2;  
-                                })
-                                .attr("y",function(dataPoint) {  
-                                    return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor + barPadding;  
-                                })
-                                .attr("dy", "1em")
-                                .attr("class", "label-temp")
-                                .text(function(dataPoint) { return formatDatapoint(normalize(dataPoint.temperature, maxv)) })
+               .data(marketData)
+               .enter()  
+               .append("text")
+               .attr("x", function (dataPoint, index) { 
+                    return barWidth * index + barWidth/2;  
+                })
+               .attr("y",function(dataPoint) {  
+                   return chartHeight - (normalize(dataPoint.temperature, maxv))*scaleFactor + barPadding;  
+                })
+               .attr("dy", "1em")
+               .attr("class", "label-temp")
+               .text(function(dataPoint) { return formatDatapoint(normalize(dataPoint.temperature, maxv)) })
 
             } 
     )
