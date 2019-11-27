@@ -7,9 +7,13 @@ import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 //import Button from '@material-ui/core/Button';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-//import Selector from './components/Selectors';
+import Selector from './components/Selectors';
 import InputField from './components/InputField';
 import ResultButton from './components/ResultButton';
+
+function distance_options() {
+    return convert().possibilities('length');
+}
 
 class App extends React.Component {
     constructor() {
@@ -43,27 +47,43 @@ class App extends React.Component {
     render() {
         //console.log(convert().possibilities())
         return (
-                <Grid container justify='center' align='center' spacing={3}>
-                    <InputField data={{  
-                                        input: this.state.firstQuantity, 
-                                        label: "Distance",
-                                        type: "number",
-                                        name: 'dist' }} 
-                                handleInput={this.handleInputFields} />
-
-                    <InputField data={{  
-                                        input: this.state.secondQuantity, 
-                                        label: "Gasolene",
-                                        type: "number",
-                                        name: 'gallons' }} 
-                                handleInput={this.handleInputFields} />
-
-                    <Grid item xs={10}>
+                <Grid container justify='center' align='center' direction={'row'} spacing={300}>
+                    <Grid id="top-row" container style={{marginTop: '20px'}}>
+                        <InputField data={{  
+                                            input: this.state.firstQuantity, 
+                                            label: "Distance",
+                                            type: "number",
+                                            name: 'dist' }} 
+                                    handleInput={this.handleInputFields} />
+                        <Selector data={{ size: 4, 
+                                          label: 'Distance',
+                                          measurements: convert().measures(),
+                                          populateType: 'mainSelector',
+                                          menuOptions: convert().possibilities('length'),
+                                          selectedValue: this.state.mainSelector }}
+                                    handleSelector={this.handleMainSelector} />
+                    </Grid>
+                    <Grid id="next-row" container style={{marginTop: '20px'}}>
+                        <InputField data={{  
+                                            input: this.state.secondQuantity, 
+                                            label: "Gasolene",
+                                            type: "number",
+                                            name: 'gallons' }} 
+                                    handleInput={this.handleInputFields} />
+                        <Selector data={{ size: 4, 
+                                          label: 'Volume',
+                                          measurements: convert().measures(),
+                                          populateType: 'mainSelector',
+                                          menuOptions: convert().possibilities('volume'),
+                                          selectedValue: this.state.mainSelector }}
+                                    handleSelector={this.handleMainSelector} />
+                    </Grid>
+                    <Grid item xs={10} style={{marginTop: '20px'}}>
                         <Fab color="primary" aria-label="play" >
                             <PlayArrowIcon />
                         </Fab>
                     </Grid>
-                    <ResultButton mpg={this.state.mpg} />
+                    <ResultButton mpg={this.state.mpg} style={{marginTop: '20px'}} />
                 </Grid>
         )
     }

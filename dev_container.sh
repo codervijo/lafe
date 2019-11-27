@@ -9,7 +9,7 @@ CONTAINER=lafe1
 ln -sf b2b/apps/react/Dockerfile .
 
 # Init container
-sudo docker build -t ${CONTAINER} .
+sudo docker build --tag ${CONTAINER}:latest --cache-from ${CONTAINER}:latest -t ${CONTAINER} .
 
 # Start Dev container
 sudo docker run -v${PWD}:/usr/src/app/lafe -p3000:3434 -it ${CONTAINER}  /bin/bash
