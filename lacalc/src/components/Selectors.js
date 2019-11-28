@@ -8,25 +8,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 class Selector extends Component {
     render() {
-        console.log(this.props);
         return (
             <Grid item xs={this.props.data.size} align="left" justify="left">
                 <FormControl variant='outlined' style={{width: '35%'}}>
                     <InputLabel>{this.props.data.label}</InputLabel>
                     <Select
+                        name={this.props.data.name}
                         value={this.props.data.selectedValue}
                         onChange={this.props.handleSelector}
-                        inputProps={{ name: this.props.data.populateType }}
                     >
-                        <MenuItem value=''>
+                        <MenuItem selected value=''>
                             <em>None</em>
                         </MenuItem>
                         {
-                            this.props.data.populateType === 'mainSelector' ? (
-                                this.props.data.menuOptions.map((ele, index) => <MenuItem value={this.props.data.measurements[index]} key={index}>{ele}</MenuItem>)
-                            ) : (
-                                this.props.data.menuOptions.map(ele => <MenuItem value={ele.abbr} key={ele.abbr}>{ele.plural}</MenuItem>)
-                            )
+                            this.props.data.menuOptions.map((ele, index) => <MenuItem value={this.props.data.measurements[index]} key={index}>{ele}</MenuItem>)
                         }
                     </Select>
                 </FormControl>

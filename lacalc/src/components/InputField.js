@@ -6,7 +6,11 @@ import Grid from '@material-ui/core/Grid';
 class InputField extends Component {
     render() {
         return (
-            <Grid item xs={7} justify="right" align="right">
+            <Grid item
+                xs={7}
+                justify="right"
+                align="right">
+
                 <TextField
                     variant='outlined'
                     label={this.props.data.label}
@@ -16,6 +20,7 @@ class InputField extends Component {
                     onChange={this.props.handleInput}
                     style={{width: '50%'}}
                 />
+
             </Grid>
         )
     }
