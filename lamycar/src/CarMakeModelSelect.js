@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import DropDownOption from './DropDownOption.js';
 import YearSelector   from './YearSelector.js';
 import CarMakeSelector from './CarMakeSelector.js';
 import CarModelSelector from './CarModelSelector.js';

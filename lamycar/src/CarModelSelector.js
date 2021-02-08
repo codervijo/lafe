@@ -4,13 +4,18 @@ import DropDownOption from './DropDownOption.js';
 
 
 class CarModelSelector extends Component {
+  state = {
+    modellist:["Prius", "Civic", "Outbak"]
+  };
+
   render() {
     return (
  			<select>
-    			<DropDownOption> Prius </DropDownOption>
-    			<DropDownOption> Outback </DropDownOption>
-    			<DropDownOption> Civic </DropDownOption>
-    			<DropDownOption> Tesla </DropDownOption>
+		        {
+		          this.state.modellist.map(model => (
+		      			<DropDownOption> {model} </DropDownOption>
+		          ))
+		        }
   			</select>
     );
   }

@@ -4,13 +4,18 @@ import DropDownOption from './DropDownOption.js';
 
 
 class YearSelector extends Component {
+  state = {
+    yearlist:[2021, 2020, 2019]
+  };
+
   render() {
     return (
  			<select>
-    			<DropDownOption> 2021 </DropDownOption>
-    			<DropDownOption> 2022 </DropDownOption>
-    			<DropDownOption> 2023 </DropDownOption>
-    			<DropDownOption> 2024 </DropDownOption>
+        {
+          this.state.yearlist.map(year => (
+      			<DropDownOption> {year} </DropDownOption>
+          ))
+        }
   		</select>
     );
   }

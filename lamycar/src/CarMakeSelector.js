@@ -4,14 +4,19 @@ import DropDownOption from './DropDownOption.js';
 
 
 class CarMakeSelector extends Component {
+  state = {
+    makelist:["Ford", "Toyota", "Subaru"]
+  };
+
   render() {
     return (
  			<select>
-    			<DropDownOption> Toyota </DropDownOption>
-    			<DropDownOption> Honda </DropDownOption>
-    			<DropDownOption> Ford </DropDownOption>
-    			<DropDownOption> Subaru </DropDownOption>
-  		</select>
+		        {
+		          this.state.makelist.map(make => (
+		      			<DropDownOption> {make} </DropDownOption>
+		          ))
+		        }
+  			</select>
     );
   }
 }
