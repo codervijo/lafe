@@ -11,12 +11,12 @@ class CarMakeSelector extends Component {
   render() {
     return (
  			<select>
-		        {
+		      {
 		          this.state.makelist.map(make => (
 		      			<DropDownOption> {make} </DropDownOption>
 		          ))
-		        }
-  			</select>
+		      }
+  		</select>
     );
   }
 }
