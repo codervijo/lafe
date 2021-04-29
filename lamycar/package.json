@@ -2,9 +2,11 @@
   "name": "lamycar",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://lafe-eta-nine.now.sh/lamycar/output/",
+  "homepage": "https://lafe-eta-nine.now.sh/lamycar/output/",
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^16.11.0",
     "react-ionicons": "^3.0.1",
     "react-scripts": "3.2.0"

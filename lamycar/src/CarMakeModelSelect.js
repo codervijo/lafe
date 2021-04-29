@@ -12,11 +12,19 @@ class CarMakeModelSelect extends Component {
     return (
 	    <div>
 
-  			<YearSelector />
-  			<CarMakeSelector />
-  			<CarModelSelector />
+        <div class="btn-toolbar row" aria-expanded="false" role="toolbar">
+          <div class="px-md-5">
+    		  	<YearSelector />
+          </div>
+          <div class="px-md-5">
+    		  	<CarMakeSelector />
+          </div>
+          <div class="px-md-5">
+    		  	<CarModelSelector />
+          < /div>
 
-  			<p>{message}</p>
+    			<p>{message}</p>
+        </div>
   		</div>     
     );
   }

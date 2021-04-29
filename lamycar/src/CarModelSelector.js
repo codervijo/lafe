@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import DropDownOption from './DropDownOption.js';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 
 class CarModelSelector extends Component {
   state = {
@@ -10,13 +10,19 @@ class CarModelSelector extends Component {
 
   render() {
     return (
- 			<select>
-		        {
-		          this.state.modellist.map(model => (
-		      			<DropDownOption> {model} </DropDownOption>
-		          ))
-		        }
-  			</select>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Car Model
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {
+              this.state.modellist.map(model => (
+                <DropDownOption> {model} </DropDownOption>
+              ))
+          }
+        </Dropdown.Menu>
+      </Dropdown>
     );
   }
 }

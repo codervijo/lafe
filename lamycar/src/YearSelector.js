@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import DropDownOption from './DropDownOption.js';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 class YearSelector extends Component {
@@ -17,14 +18,19 @@ class YearSelector extends Component {
 
   render() {
     return (
- 			<select>
-        {
-          this.state.yearlist.map(year => (
-      			<DropDownOption> {year} </DropDownOption>
-          ))
-        }
-        <DropDownOption> '>1999' </DropDownOption>
-  		</select>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Year
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {
+              this.state.yearlist.map(year => (
+                <DropDownOption> {year} </DropDownOption>
+              ))
+          }
+        </Dropdown.Menu>
+      </Dropdown>
     );
   }
 }
